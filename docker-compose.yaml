@@ -1,6 +1,7 @@
 version: '3.8'
 
 services:
+  # Orchestrates data flow and calls ML/LLM modules
   n8n:
     image: n8nio/n8n
     ports:
@@ -10,14 +11,18 @@ services:
     environment:
       - GENERIC_TIMEZONE=Europe/Oslo
 
+  # Local speech‑to‑text engine
   whisper:
+    # Build a custom Whisper container from the whisper directory
     build:
       context: ./whisper
-      dockerfile: dockerfile
+      dockerfile: Dockerfile
     volumes:
       - ./audio:/app/audio
+    # Run indefinitely; actual commands will be executed via n8n
     command: sleep infinity
 
+  # Notebook environment for ML analysis
   jupyter:
     image: jupyter/scipy-notebook
     ports:
@@ -26,3 +31,23 @@ services:
       - ./scripts:/home/jovyan/work
     environment:
       - JUPYTER_ENABLE_LAB=yes
+
+  # Placeholder for a local LLM (e.g. Ollama)
+  ollama:
+    image: ollama/ollama
+    volumes:
+      - ./ollama/config:/root/.ollama
+    ports:
+      - "11434:11434"
+    restart: unless-stopped
+
+  # Placeholder for an external LLM fallback
+  openrouter:
+    build:
+      context: ./openrouter
+      dockerfile: Dockerfile
+    environment:
+      - API_KEY=${OPENROUTER_API_KEY}
+    command: sleep infinity
+
+  # Additional services (data feeds, trading API, dashboards, etc.) will be added in later phases

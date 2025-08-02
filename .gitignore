@@ -1,0 +1,15 @@
+# Node modules and caches
+node_modules/
+
+# Persistent data directories
+n8n_data/
+db/
+logs/
+models/
+
+# Python and Jupyter artifacts
+__pycache__/
+.ipynb_checkpoints/
+
+# Operating system files
+.DS_Store
