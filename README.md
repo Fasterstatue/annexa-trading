@@ -1,13 +1,16 @@
 # Annexa Trading – Lokalt KI‑basert system for automatisert analyse
 
-Dette prosjektet bygger et robust, modulbasert og 100 % lokalt KI/ML‑system for tradingbeslutninger. 
-Systemet kjører i containere (Docker) og er gratis og åpen kildekode. De viktigste modulene er:
+Dette prosjektet bygger et robust, modulbasert og 100 % lokalt KI/ML‑system for tradingbeslutninger.
+Systemet kjører i containere (Docker) og er gratis og åpen kildekode. Kjernemodulene (de første vi bygger) er:
 
 * **n8n** – orkestrerer datainnhenting, flyt og signalbehandling.
-* **Whisper** – konverterer tale til tekst for stemmekommandoer.
-* **Ollama / LLM** – lokal språkmodell som tolker signaler og svarer på spørsmål.
-* **Jupyter + ML** – kjører tekniske indikatorer og maskinlæringsmodeller for å generere trading‑signaler.
+* **Jupyter + ML** – kjører tekniske indikatorer og maskinlæringsmodeller for å generere trading‑signaler.
 * **GitHub** – lagrer kildekode, dokumentasjon og roadmap.
+
+I senere faser kan vi også legge til valgfrie moduler som:
+
+* **Whisper** – konverterer tale til tekst for stemmekommandoer.
+* **Ollama / LLM** – lokal språkmodell som tolker signaler og svarer på spørsmål.
 
 Systemet inneholder også en **simuleringsmotor** for trygg testkjøring før reell handel aktiveres.
 
