@@ -14,6 +14,25 @@ I senere faser kan vi også legge til valgfrie moduler som:
 
 Systemet inneholder også en **simuleringsmotor** for trygg testkjøring før reell handel aktiveres.
 
+### Datainnhenting (Fase 2)
+
+Det er ikke alltid mulig å hente data over nett i denne test‑miljøet. For å komme i gang
+har vi inkludert et lite eksempelsett med aksjekurser i katalogen `data/`. Du finner en
+CSV‑fil `sample_stock.csv` med én måneds daglig bar‐data for en fiktiv aksje. Tilhørende
+`scripts/data/fetch_sample.py` inneholder funksjonen `load_sample_data()` som leser
+CSV‑filen inn i et Pandas DataFrame. Eksempel:
+
+```python
+from scripts.data import load_sample_data
+
+df = load_sample_data()
+print(df.head())
+```
+
+Dette gir deg et konsistent datagrunnlag til å utvikle og teste indikatorskript
+og simuleringslogikk. Når nettaksess eller API‐nøkler er tilgjengelig, kan du
+utvide `fetch_sample.py` med funksjoner som henter data fra eksterne tjenester.
+
 ## Kom i gang
 
 1. Sørg for at Docker og Docker Compose er installert.

@@ -11,7 +11,7 @@ Dette dokumentet gir en oversikt over modulene i Annexa Trading‑systemet og h
 | **Ollama**      | Lokal LLM for å tolke naturlig språk og generere forslag eller svar.                                                                        |
 | **OpenRouter**  | Fallback‑tjeneste mot skybasert LLM i tilfelle lokal modell feiler.                                                                          |
 | **Jupyter + ML**| Kjøring av ML‑notebooks og scripts for beregning av tekniske indikatorer og modeller.                                                        |
-| **Datafeed/API**| Henter markedsdata (f.eks. fra Yahoo Finance eller Finnhub) for analyse.                                                                    |
+| **Datafeed/API**| Henter markedsdata. I offline‐miljøer leses data fra en lokal CSV (se `data/sample_stock.csv` og `scripts/data/fetch_sample.py`). Når nettaksess eller API‐nøkler er tilgjengelig kan modulen hente sanntidsdata fra eksterne kilder.                                                                    |
 | **Simulering**  | Tester strategier på historiske eller live data uten å gjøre reelle handler.                                                                 |
 | **Handelskanal**| Integrasjon mot en broker (f.eks. Nordnet) for å sende ordrer.                                                                               |
 | **Dashbord**    | Visualiserer resultater og statuser (Streamlit, Grafana, etc.).                                                                              |

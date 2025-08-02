@@ -10,9 +10,10 @@ Dette dokumentet beskriver den fasevise utviklingsplanen for Annexa Trading.
 
 ## Fase 2: Datainnhenting
 
-* Utvikle en modul i `scripts/` eller direkte i n8n som henter markedsdata fra en valgt kilde (f.eks. Yahoo Finance eller Finnhub).
-* Lagre dataene lokalt (CSV/SQLite) og verifiser at oppdateringer hentes riktig.
-* Før du går videre, sørg for at datainnhentingen fungerer stabilt og automatisk via n8n.
+* Utvikle en modul i `scripts/` (f.eks. `scripts/data/fetch_sample.py`) eller direkte i n8n som henter markedsdata fra en valgt kilde.
+* I offline‐miljøer hvor nettaksess ikke er mulig, bruk den medfølgende prøvedatafilen `data/sample_stock.csv` og funksjonen `load_sample_data()` for å laste data inn i Pandas.
+* Når nettaksess eller API‐nøkler er tilgjengelige, utvid modulen til å hente sanntidsdata fra en ekstern tjeneste (f.eks. Yahoo Finance eller Finnhub).
+* Lagre dataene lokalt (CSV/SQLite) og verifiser at oppdateringer hentes riktig. Oppdater n8n‑flyten slik at den kjører datainnhentingen automatisk.
 
 ## Fase 3: Grunnleggende analyse
 
