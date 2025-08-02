@@ -12,15 +12,15 @@ services:
       - GENERIC_TIMEZONE=Europe/Oslo
 
   # Local speech‑to‑text engine
-  whisper:
-    # Build a custom Whisper container from the whisper directory
-    build:
-      context: ./whisper
-      dockerfile: Dockerfile
-    volumes:
-      - ./audio:/app/audio
-    # Run indefinitely; actual commands will be executed via n8n
-    command: sleep infinity
+  #whisper:
+  #  # Build a custom Whisper container from the whisper directory
+  #  build:
+  #    context: ./whisper
+  #    dockerfile: Dockerfile
+  #  volumes:
+  #    - ./audio:/app/audio
+  #  # Run indefinitely; actual commands will be executed via n8n
+  #  command: sleep infinity
 
   # Notebook environment for ML analysis
   jupyter:
@@ -33,21 +33,21 @@ services:
       - JUPYTER_ENABLE_LAB=yes
 
   # Placeholder for a local LLM (e.g. Ollama)
-  ollama:
-    image: ollama/ollama
-    volumes:
-      - ./ollama/config:/root/.ollama
-    ports:
-      - "11434:11434"
-    restart: unless-stopped
+  #ollama:
+  #  image: ollama/ollama
+  #  volumes:
+  #    - ./ollama/config:/root/.ollama
+  #  ports:
+  #    - "11434:11434"
+  #  restart: unless-stopped
 
   # Placeholder for an external LLM fallback
-  openrouter:
-    build:
-      context: ./openrouter
-      dockerfile: Dockerfile
-    environment:
-      - API_KEY=${OPENROUTER_API_KEY}
-    command: sleep infinity
+  #openrouter:
+  #  build:
+  #    context: ./openrouter
+  #    dockerfile: Dockerfile
+  #  environment:
+  #    - API_KEY=${OPENROUTER_API_KEY}
+  #  command: sleep infinity
 
   # Additional services (data feeds, trading API, dashboards, etc.) will be added in later phases
